@@ -107,5 +107,16 @@ async function init() {
     }
     user_shapr.setCOlor(user_shape_color);
 
+    //Below will create a new svg instance and add shape and text to logo
+    var svg = new Svg();
+    svg.setTextElement(user_text, user_font_color);
+    svg.setShapeElement(user_shape);
+    svgString = svg.render();
 
+    //create and display logo!
+    console.log('Displaying shape:\n\n' + svgString);
+    console.log("Shape generation complete!");
+    console.log("Writing shape to file...");
+    writeToFile(svg_file, svgString);
 }
+init()
