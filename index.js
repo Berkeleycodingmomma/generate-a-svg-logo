@@ -47,3 +47,38 @@ const questions = [{
         Choices: ['Circle', 'Square', 'Triangle'],
     },
 ];
+
+
+//Below is the function I created to write the data to file
+function writeToFile(fileName, data) {
+    console.log('Writting [' + data + '] to file [' + fileName + ']')
+    filesystem.writeFile(fileName, data, function (error) {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('YES! you have generated your personal logo!');
+    });
+}
+
+
+async function init() {
+    console.log('Starting init');
+    var svgString = '';
+    var svg_file = 'logo.svg';
+
+    //This is the prommpt for the user to answer the questions
+    const answers = await inquirer.prompt(questions);
+
+    //User can answer 
+    var user_text = '';
+    if (answers.text.length > 0 && answers.text.length < 4) {
+        //letting user know only 1-3 char.
+        user_text = answers.text;
+    } else {
+        //if the user inputs more than 4, it will let them know it is invalid
+        console.log("Invalid user text field detected! Please enter 1-3 Characters, no more and no less please");
+        return;
+    }
+    
+
+}
