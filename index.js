@@ -79,6 +79,33 @@ async function init() {
         console.log("Invalid user text field detected! Please enter 1-3 Characters, no more and no less please");
         return;
     }
-    
+    console.log('User text: [' + user_text + ']');
+    //font color
+    user_font_color = answers['text-color'];
+    console.log('User font color: [' + user_font_color + ']');
+    //shape color
+    user_shape_color = answers.shape;
+    console.log("User shape color: [" + user_shape_color + "]");
+    //shape type
+    user_shape_type = answers["pixel-image"];
+    console.log("User entered shape = [" + user_shape_type + "]");
+
+
+    //These are the user shape functions
+    let user_shape;
+    if (user_shape_type === 'Square' || user_shape_type === "square") {
+        user_shape = new square();
+        console.log('User selected the Square shape');
+    } else if (user_shape_type === 'Circle' || user_shape_type === 'circle') {
+        user_shape = new Circle();
+        console.log('User selected the Circle shape');
+    } else if (user_shape_type === 'Triangle' || user_shape_type === 'triangle') {
+        user_shape = new Triangle();
+        console.log('User selected the Triangle shape');
+    } else {
+        console.log('Invalid Shape!');
+    }
+    user_shapr.setCOlor(user_shape_color);
+
 
 }
