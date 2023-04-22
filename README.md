@@ -19,7 +19,7 @@ logo.svg: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Star
 
 
 ## Description 
-The User will type a movie title in the search box.  Next they will click the search button. It will then bring up twelve intresting facts about the country that the particular movie was filmed in. It will store the tittle to the left for the user to see on the side of the page under the search button if user wants to click on again, and is so it will bring up the 12 facts again. 
+This application is a Node.js command-line app that takes the users input to generate a logo and save it as a .svg file. The application prompts the user to seleect a color and shaepe, then prompts them to input the text for desired logo, and finally ave the generated SVG to a .svg file. This in turn will keep the user from having to pay a graphic designer to create a simple logo for their projects.
 
 ## Visual image of our Deplloyed site
 
@@ -35,67 +35,43 @@ The User will type a movie title in the search box.  Next they will click the se
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
  ```sh
- 
-//Call to omdb
-    var omdbKey = "b0f2dca4"
-    let getMovie="http://www.omdbapi.com/?apikey=" + omdbKey + "&t=" + title
-    fetch(getMovie, options1)
-        .then(res => res.json()) // parse response as JSON
-        .then(data => {
-            console.log(data);
-            //specify we want "country"
-            country = data.Country
-            var oneCountry= country.split(',')
-            console.log(oneCountry[0], "This is our country");
-            //console.log(country.split(','));
+
+ <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">
+
+<circle cx="50%" cy="50%" r="100" height="100%" width="100%" fill="GREEN"/>
+
+<text x="150" y="125" font-size="60" text-anchor="middle" fill="WHITE">SVG</text>
+
+</svg>
 
 
 ```
 
-**(ABOVE)- We had to learn how to seperate countries
+**(ABOVE)- This element fetches via its xlink:href. This is the code that generates the image.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 ```sh
     
- <header class="header">
-        <h1 class="title is-spaced 5">The Dirty Dozen:</h1>
-        <p class="subtitle is-3 is-spaced 3"> 12 Random Facts About the Country Your Movie was
-            Filmed In</p>
-    </header>
+ 
 
 ```
 
-**(ABOVE)- We used "Bulma" to size our fonts and spacing.
-
+**(ABOVE)- 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 ```sh
 
-$("#movie-title-container").on("click", function (event) {
-    event.preventDefault();
-    let buttonSearch=$(event.target).attr("id")
-    console.log(buttonSearch, "buttonSearch")
-    findTitle(buttonSearch)
-   //play();
-});
+
 
 ```
-**(ABOVE)- We added a sound effect
+**(ABOVE)- 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 ```sh
   
-body {
-    background-image: url(../images/movie\ img\ 1.jpeg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
-    height: 1500px;
-}
+
 
 ```
-**(ABOVE)- We added a background pictures
-
+**(ABOVE)- 
 
 ```sh
 ![Alt text](./assets/images/screen-capture%20(2).webm)
@@ -115,10 +91,10 @@ body {
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Author Info
 
-### Amanda Gray, Kevin Huang, Caleb Lapitan, Tamara Dusenbury
+### Amanda Gray
 
-
-* [Deployed Application link](https://berkeleycodingmomma.github.io/dirty-dozen-team-project/)
+* [Linkedin]()
+* [Deployed Application link]()
 ```
 
 ## Credits
