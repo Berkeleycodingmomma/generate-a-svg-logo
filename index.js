@@ -23,3 +23,27 @@ class Svg {
         this.shapeElement = shape.render()
     }
 }
+
+//I defined the array of questions using the 'inquirer' library with questions
+const questions = [{
+        type: "input",
+        name: 'text',
+        message: 'Text: Enter up to three characters:',
+    },
+    {
+        type: "input",
+        name: 'text-color',
+        message: 'Text color: Enter a color keyword/or a hexadecimal number:',
+    },
+    {
+        type: "input",
+        name: 'shape',
+        message: 'Shape color: Enter a color keyword/or a hexadecimal number:',
+    },
+    {
+        type: "list",
+        name: 'texpixel-image',
+        message: 'Pick which Pixel Image you would like',
+        Choices: ['Circle', 'Square', 'Triangle'],
+    },
+];
