@@ -1,9 +1,6 @@
 # generate-a-svg-logo
 
-
-
-# "12 Random Facts about the country your movie was filed in"<br> Interactive Front-End Application 
-
+# Object-oriented Programming Challenge: SVG Logo Maker
 
 
 ## Technology Used 
@@ -17,32 +14,19 @@ Applying text in logo's: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutori
 logo.svg: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started
 SVG Link: https://marketplace.visualstudio.com/items?itemName=jock.svg
 
-# generate-a-svg-logo
-
-
-
-# "12 Random Facts about the country your movie was filed in"<br> Interactive Front-End Application 
-
-
-
-## Technology Used 
-
-| Technology Used         | Resource URL           | 
-| ------------- |:-------------:| 
-What is SVG: https://en.wikipedia.org/wiki/SVG
-SVG Tutorial: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial
-Generate shapes: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes
-Applying text in logo's: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Texts
-logo.svg: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started
-
-
+#
 
 ## Description 
 This application is a Node.js command-line app that takes the users input to generate a logo and save it as a .svg file. The application prompts the user to seleect a color and shaepe, then prompts them to input the text for desired logo, and finally ave the generated SVG to a .svg file. This in turn will keep the user from having to pay a graphic designer to create a simple logo for their projects.
+#
+## Link to a walk-through demonstrating how to generate a .svg logo through the command-line
+#
+* [Youtube](https://youtu.be/zJK_bs3YEYA)
+#
 
-## Visual image of our Deplloyed site
+## Visual image of my terminal after generating a .svg logo through the command-line
 
-![Alt text](./assets/images/Screen%20Shot%202023-04-14%20at%201.48.45%20PM.png)
+
 
 
 
@@ -55,66 +39,120 @@ This application is a Node.js command-line app that takes the users input to gen
 
  ```sh
 
- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">
-
-<circle cx="50%" cy="50%" r="100" height="100%" width="100%" fill="GREEN"/>
-
-<text x="150" y="125" font-size="60" text-anchor="middle" fill="WHITE">SVG</text>
-
-</svg>
+const questions = [
+    {
+        type: "input",
+        name: "text",
+        message: "TEXT: Enter up to (3) Characters:",
+    },
+    {
+        type: "input",
+        name: "text-color",
+        message: "TEXT COLOR: Enter a color keyword (OR a hexadecimal number):",
+    },
+    {
+        type: "input",
+        name: "shape",
+        message: "SHAPE COLOR: Enter a color keyword (OR a hexadecimal number):",
+    },
+    {
+        type: "list",
+        name: "pixel-image",
+        message: "Choose which Pixel Image you would like?",
+        choices: ["Circle", "Square", "Triangle"],
+    },
+];
 
 
 ```
 
-**(ABOVE)- This element fetches via its xlink:href. This is the code that generates the image.
+**(ABOVE)- Here are the prompt questions for the user to answer to create their logo in the comand line 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ```sh
     
- 
 
+    const answers = await inquirer.prompt(questions);
+
+	//user inputs text
+	var user_text = "";
+	if (answers.text.length > 0 && answers.text.length < 4) {
+		user_text = answers.text;
+	} else {
+		// no more than chars. or invalid entry
+		console.log("Invalid user text field detected! Please enter 1-3 Characters, no more and no less");
+        return;
+	};
+ 
 ```
 
-**(ABOVE)- 
+**(ABOVE)- Prompts the user for answers
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ```sh
 
-
-
+// Circle Shape
+describe('Circle', () => {
+    test('renders correctly', () => {
+      const shape = new Circle();
+      var color =('blue')
+      shape.setColor(color);
+      expect(shape.render()).toEqual(`<circle cx="50%" cy="50%" r="100" height="100%" width="100%" fill="${color}">`);
+    });
+    
 ```
-**(ABOVE)- 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------
+**(ABOVE)- Imports the Circle classe from the 'shapes.js' module and defines a test suite for the shape class.  
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ```sh
   
+class Shape {
+    constructor() {
+        this.color = ''
+    }
+    setColor(color) {
+        this.color = (color);
+    }
+}
+class Circle extends Shape {
+    render() {
+        return `<circle cx="50%" cy="50%" r="100" height="100%" width="100%" fill="${this.color}"/>`
+    }
+}
+class Square extends Shape {
+    render() {
+        return `<rect x="50" height="200" width="200" fill="${this.color}"/>`
+    }
+}
+class Triangle extends Shape {
+    render() {
+        return `<polygon height="100%" width="100%" points="0,200 300,200 150,0" fill="${this.color}"/>`
+    }
+};
 
+module.exports = {Circle, Square, Triangle}
 
 ```
-**(ABOVE)- 
-
-```sh
-![Alt text](./assets/images/screen-capture%20(2).webm)
-
-```
-
-
+**(ABOVE)- I have defined the classes of the shapes with const. setting the color value. 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
-
-## A GIF of our page load showing the animation of our page loading and a search resulting in a list of 12 random facts.
-
-
-[screen-capture (2).webm](https://user-images.githubusercontent.com/128196644/232180341-b63a7117-5b80-4e32-8342-dc7435e1f979.webm)
+#
+## Below are examples of the three differnt shapes generated by the user through the command line.
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------
+#
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Author Info
 
 ### Amanda Gray
 
 * [Linkedin]()
 * [Deployed Application link]()
-```
+
 
 ## Credits
 
@@ -127,216 +165,4 @@ GOOGLE!  Seriously, thank you google search!
 
 
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
-
-
-
-
-
-
-# generate-a-svg-logo
-
-
-
-# "12 Random Facts about the country your movie was filed in"<br> Interactive Front-End Application 
-
-
-
-## Technology Used 
-
-| Technology Used         | Resource URL           | 
-| ------------- |:-------------:| 
-What is SVG: https://en.wikipedia.org/wiki/SVG
-SVG Tutorial: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial
-Generate shapes: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes
-Applying text in logo's: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Texts
-logo.svg: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started
-
-
-
-## Description 
-This application is a Node.js command-line app that takes the users input to generate a logo and save it as a .svg file. The application prompts the user to seleect a color and shaepe, then prompts them to input the text for desired logo, and finally ave the generated SVG to a .svg file. This in turn will keep the user from having to pay a graphic designer to create a simple logo for their projects.
-
-## Visual image of our Deplloyed site
-
-![Alt text](./assets/images/Screen%20Shot%202023-04-14%20at%201.48.45%20PM.png)
-
-
-
-
-
-## Code examples
-
-
---------------------------------------------------------------------------------------------------------------------------------------------------------
-
- ```sh
-
- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">
-
-<circle cx="50%" cy="50%" r="100" height="100%" width="100%" fill="GREEN"/>
-
-<text x="150" y="125" font-size="60" text-anchor="middle" fill="WHITE">SVG</text>
-
-</svg>
-
-
-```
-
-**(ABOVE)- This element fetches via its xlink:href. This is the code that generates the image.
-
---------------------------------------------------------------------------------------------------------------------------------------------------------
-```sh
-    
- 
-
-```
-
-**(ABOVE)- 
---------------------------------------------------------------------------------------------------------------------------------------------------------
-```sh
-
-
-
-```
-**(ABOVE)- 
-
----------------------------------------------------------------------------------------------------------------------------------------------------------
-```sh
-  
-
-
-```
-**(ABOVE)- 
-
-```sh
-![Alt text](./assets/images/screen-capture%20(2).webm)
-
-```
-
-
-
---------------------------------------------------------------------------------------------------------------------------------------------------------
-
-## A GIF of our page load showing the animation of our page loading and a search resulting in a list of 12 random facts.
-
-
-[screen-capture (2).webm](https://user-images.githubusercontent.com/128196644/232180341-b63a7117-5b80-4e32-8342-dc7435e1f979.webm)
-
-
----------------------------------------------------------------------------------------------------------------------------------------------------------
-## Author Info
-
-### Amanda Gray
-
-* [Linkedin]()
-* [Deployed Application link]()
-```
-
-## Credits
-
-Shout out to all the TA's and Google Search!
-
-GOOGLE!  Seriously, thank you google search!
-
-
-
-
-
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
-
-
-
-
-
-## Description 
-This application is a Node.js command-line app that takes the users input to generate a logo and save it as a .svg file. The application prompts the user to seleect a color and shaepe, then prompts them to input the text for desired logo, and finally ave the generated SVG to a .svg file. This in turn will keep the user from having to pay a graphic designer to create a simple logo for their projects.
-
-## Visual image of our Deplloyed site
-
-![Alt text](./assets/images/Screen%20Shot%202023-04-14%20at%201.48.45%20PM.png)
-
-
-
-
-
-## Code examples
-
-
---------------------------------------------------------------------------------------------------------------------------------------------------------
-
- ```sh
-
- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">
-
-<circle cx="50%" cy="50%" r="100" height="100%" width="100%" fill="GREEN"/>
-
-<text x="150" y="125" font-size="60" text-anchor="middle" fill="WHITE">SVG</text>
-
-</svg>
-
-
-```
-
-**(ABOVE)- This element fetches via its xlink:href. This is the code that generates the image.
-
---------------------------------------------------------------------------------------------------------------------------------------------------------
-```sh
-    
- 
-
-```
-
-**(ABOVE)- 
---------------------------------------------------------------------------------------------------------------------------------------------------------
-```sh
-
-
-
-```
-**(ABOVE)- 
-
----------------------------------------------------------------------------------------------------------------------------------------------------------
-```sh
-  
-
-
-```
-**(ABOVE)- 
-
-```sh
-![Alt text](./assets/images/screen-capture%20(2).webm)
-
-```
-
-
-
---------------------------------------------------------------------------------------------------------------------------------------------------------
-
-## A GIF of our page load showing the animation of our page loading and a search resulting in a list of 12 random facts.
-
-
-[screen-capture (2).webm](https://user-images.githubusercontent.com/128196644/232180341-b63a7117-5b80-4e32-8342-dc7435e1f979.webm)
-
-
----------------------------------------------------------------------------------------------------------------------------------------------------------
-## Author Info
-
-### Amanda Gray
-
-* [Linkedin]()
-* [Deployed Application link]()
-```
-
-## Credits
-
-Shout out to all the TA's and Google Search!
-
-GOOGLE!  Seriously, thank you google search!
-
-
-
-
-
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
-
 
