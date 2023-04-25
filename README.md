@@ -144,7 +144,7 @@ module.exports = {Circle, Square, Triangle}
 
 ### Amanda Gray
 
-* [Linkedin](www.linkedin.com/in/amanda-gray-831a65254/)
+* [Linkedin](https://www.linkedin.com/in/amanda-gray-831a65254/)
 
 
 ## Credits
